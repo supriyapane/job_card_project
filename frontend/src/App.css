@@ -4,25 +4,25 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background: white;
+  background: #f4f6f8;
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
 }
 
 .app-container {
+  width: 100%;
   min-height: 100vh;
   background: transparent;
-  display: flex;
-  justify-content: center;
-  padding: 40px 20px;
+  padding: 20px 16px;
+  box-sizing: border-box;
 }
-
 
 /* Center wrapper */
 .page-center {
   width: 100%;
   max-width: 900px;
+  margin: 0 auto;
 }
 
 /* Cards */
@@ -30,10 +30,10 @@ body {
 .spoken-card,
 .json-card {
   background: white;
-  border-radius: 18px;
-  padding: 30px;
-  margin-bottom: 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* Headings */
@@ -48,69 +48,71 @@ body {
   background: linear-gradient(135deg, #22c55e, #16a34a);
   color: white;
   border: none;
-  padding: 16px 32px;
-  font-size: 18px;
-  border-radius: 32px;
+  padding: 14px 20px;
+  font-size: 16px;
+  border-radius: 30px;
   cursor: pointer;
+  width: 100%;
 }
 
 /* Output areas */
 .output-box,
 .json-box {
   background: #f1f5f9;
-  padding: 20px;
+  padding: 16px;
   border-radius: 12px;
-  min-height: 90px;
+  min-height: 80px;
   font-size: 14px;
-}
-.page-title {
-  text-align: center;
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 30px;
-  color: white;
+  word-wrap: break-word;
 }
 
+/* Page Title */
+.page-title {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+}
+
+/* Search Container */
 .search-container {
   display: flex;
   align-items: center;
   background: #268aff;
-  padding: 14px 20px;
+  padding: 12px 14px;
   border-radius: 20px;
-  width: 600px;
-  margin: 30px auto;
+  width: 100%;              /* Mobile full width */
+  max-width: 600px;         /* Desktop limit */
+  margin: 20px auto;
   border: 2px solid transparent;
   transition: all 0.3s ease;
-  border-style: double;
+  box-sizing: border-box;
 }
 
-.search-icon {
-  height: 20px;
-  margin-top: 1px;
-  padding-right: 5px;
-  filter: brightness(0) invert(1);
-}
-
-.voice-search-icon {
-  height: 20px;
-  margin-top: 1px;
-  align-items: end;
-  filter: brightness(0) invert(1);
-}
-
-/* Smooth white border on focus */
+/* Focus effect */
 .search-container:focus-within {
   border: 2px solid #ffffff;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
 }
 
+/* Icons */
+.search-icon,
+.voice-search-icon {
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+
+/* Input */
 .search-input {
   flex: 1;
   border: none;
   outline: none;
   background: transparent;
   color: white;
-  font-size: 16px;
+  font-size: 16px; /* Prevent mobile zoom */
   width: 100%;
   resize: none;
   overflow: hidden;
@@ -122,20 +124,24 @@ body {
   color: #eafcff;
 }
 
+/* Icon buttons */
 .icon-btn {
   background: transparent;
   border: none;
   cursor: pointer;
   font-size: 18px;
   color: white;
+  margin-left: 8px;
 }
 
+/* Mic Button */
 .mic-btn {
   background: #4c6ef5;
   border: none;
   border-radius: 50%;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -148,27 +154,31 @@ body {
 }
 
 .mic-icon {
-  width: 30px;
-  height: 30px;
+  width: 26px;
+  height: 26px;
 }
+
 .listening {
   animation: pulse 1s infinite;
 }
 
+/* Animation */
 @keyframes pulse {
   0% { transform: scale(1); }
   50% { transform: scale(1.15); }
   100% { transform: scale(1); }
 }
 
+/* Spoken box */
 .spoken-box {
   margin-top: 20px;
   background: #ffffff;
   padding: 15px;
   border-radius: 10px;
-  width: auto;
+  width: 100%;
   margin: 20px auto;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-sizing: border-box;
 }
 
 .spoken-box h3 {
@@ -178,13 +188,109 @@ body {
 .spoken-box p {
   font-size: 16px;
   color: #333;
+  word-wrap: break-word;
 }
 
+/* JSON block */
 .json-block {
-  height: auto;
-  width: auto;
-  border: solid 1px black;
+  width: 100%;
+  border: solid 1px #ddd;
   border-radius: 10px;
-  padding: 5px 5px;
+  padding: 10px;
   background-color: white;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+@media (min-width: 768px) {
+
+  .page-title {
+    font-size: 32px;
+  }
+
+  .job-card,
+  .spoken-card,
+  .json-card {
+    padding: 30px;
+    border-radius: 18px;
+  }
+
+  .search-container {
+    padding: 14px 20px;
+  }
+
+  .voice-btn {
+    width: auto;
+  }
+
+}
+
+/* ---------- Compact Mobile Optimization ---------- */
+@media (max-width: 480px) {
+
+  /* Reduce overall spacing */
+  .app-container {
+    padding: 12px;
+  }
+
+  .job-card,
+  .spoken-card,
+  .json-card {
+    padding: 14px;
+    margin-bottom: 16px;
+    border-radius: 14px;
+  }
+
+  /* Smaller title */
+  .page-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  /* Compact search bar */
+  .search-container {
+    padding: 8px 12px;
+    border-radius: 16px;
+    margin: 15px auto;
+  }
+
+  /* Smaller input text */
+  .search-input {
+    font-size: 15px;
+  }
+
+  /* Smaller icons */
+  .search-icon,
+  .voice-search-icon {
+    height: 16px;
+  }
+
+  /* Smaller mic button */
+  .mic-btn {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+  }
+
+  .mic-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Smaller output boxes */
+  .output-box,
+  .json-box {
+    padding: 12px 8px;
+    font-size: 13px;
+    min-height: 60px;
+  }
+
+  .spoken-box {
+    padding: 12px 8px;
+  }
+
+  .spoken-box p {
+    font-size: 14px;
+  }
+
 }
